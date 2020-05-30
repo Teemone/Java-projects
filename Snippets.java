@@ -1,7 +1,7 @@
 package problemSolution;
 
 public class Snippets {
-	static Snippets snip=new Snippets();
+	
 	private final double pi = Math.PI;
 	
 /** An object has been created and each method has been called
@@ -9,8 +9,9 @@ public class Snippets {
  * input the values for the parameters and test it with ease.
  */
 	public static void main(String[] args) {
+		Snippets snip=new Snippets();
 		
-		//System.out.println(snip.areaOfASquare());
+		System.out.println(snip.areaOfASquare(5));
 		//System.out.println(snip.areaOfARectangle());
 		//System.out.println(snip.areaOfATriangle());
 		//System.out.println(snip.areaOfATrapezoid());

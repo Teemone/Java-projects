@@ -11,7 +11,7 @@ public class Snippets {
 	public static void main(String[] args) {
 		Snippets snip=new Snippets();
 		
-		System.out.println(snip.areaOfASquare(5));
+		//System.out.println(snip.areaOfASquare());
 		//System.out.println(snip.areaOfARectangle());
 		//System.out.println(snip.areaOfATriangle());
 		//System.out.println(snip.areaOfATrapezoid());

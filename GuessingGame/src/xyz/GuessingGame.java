@@ -4,29 +4,70 @@ import java.util.Random;
 
 
 public class GuessingGame {
+	Scanner scan = new Scanner(System.in);
+	Random random = new Random();
+	String check = "y";
+    boolean keepPlaying = true;
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		Random random = new Random();
-		int lives = 3;
+		GuessingGame game = new GuessingGame();
+		int lives = 5;
 		
-		System.out.println("Welcome to the guessing game!, please enter the range of numbers you want guess from");
-		int range = scan.nextInt();
-		int randomNum = random.nextInt(range);
 		
-		System.out.printf("Okay, i'm thinking of a number between 0 & %d, you have only 3 lives! What's the number?\n", range);
-		int guess = scan.nextInt();
-		for(int i = 1; i < lives; i++) {
-			if(guess != randomNum) {
-				System.out.println("Try again");
-				guess = scan.nextInt();
-			}
-			else
-				System.out.printf("Congratulations!, you got it right the number was %d", randomNum);
+		while(game.keepPlaying) {
 			
+		int randomNum = game.random.nextInt(16);	
+		System.out.println("Welcome to the guessing game!");
+		System.out.println("Okay, i'm thinking of a number between 0 & 15, you have only 5 tires! What's the number?");
+		int guess = game.scan.nextInt();
+		for(int i = 1; i < lives; i++) {
+			if(guess < randomNum) {
+				System.out.println("Guess higher!");
+				guess = game.scan.nextInt();
+			}	
+			else if (guess > randomNum) {  
+				System.out.println("Guess lower!");
+				guess = game.scan.nextInt();
 			}
-		System.out.println("Game Over.. :(");
-
+			else if(guess == randomNum) {
+				System.out.println("Congratulations!! You got it right");
+				break;
+			}	
+		}
+		if(guess != randomNum) {
+			System.out.println("Game Over.. :(");
+			}
+		
+		if( guess != randomNum || guess == randomNum ) {
+			game.playAgain();
+			}
+		}
+		
 	}
-
+		
+		
+		
+		
+	
+	public void playAgain() {
+		String play;
+		
+		System.out.println("Do you want to play again? Input 'y' or 'n' ");
+		play = scan.next();
+		
+		if(play.equals(check)) {
+			keepPlaying = true;
+		}else {
+			System.out.println("Bye!!");
+			keepPlaying = false;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 }
